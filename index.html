@@ -40,6 +40,13 @@
             background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #A37E3A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            /* Correção forçada de GPU para o bug do Safari/iOS */
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .mirror-effect {
@@ -51,7 +58,14 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
             animation: shine 5s linear infinite;
+            /* Correção forçada de GPU para o bug do Safari/iOS */
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         @keyframes shine {
