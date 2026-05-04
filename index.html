@@ -596,8 +596,15 @@
         const menuBtn = document.getElementById('menu-mobile');
         const overlay = document.getElementById('mobile-menu-overlay');
         const closeBtn = document.getElementById('close-menu');
+        
         menuBtn.onclick = () => overlay.classList.remove('opacity-0', 'pointer-events-none');
         closeBtn.onclick = () => overlay.classList.add('opacity-0', 'pointer-events-none');
+
+        // CORREÇÃO: Fecha o menu mobile ao clicar em qualquer link dentro dele
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.onclick = () => overlay.classList.add('opacity-0', 'pointer-events-none');
+        });
 
         const reveals = document.querySelectorAll('.reveal');
         const revealFunc = () => reveals.forEach(el => {
