@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidraçaria Dois Irmãos | Excelência em Vidros e Espelhos</title>
+    
+    <meta name="description" content="Vidraçaria Dois Irmãos - 18 anos de tradição na Grande Florianópolis. Especialistas em vidros temperados, espelhos de luxo e esquadrias de alto padrão.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        goldDark: '#AA771C',
+                        richBlack: '#050505',
+                        cardBlack: '#0F0F0F',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #fff; font-family: 'Montserrat', sans-serif; }
+        
+        .logo-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #A37E3A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mirror-effect {
+            -webkit-box-reflect: below -18px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+        }
+
+        .glass-shine {
+            background: linear-gradient(120deg, #D4AF37 30%, #fff 50%, #D4AF37 70%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+
+        .gold-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#0F0F0F, #0F0F0F) padding-box,
+                        linear-gradient(135deg, #D4AF37, #A37E3A) border-box;
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+        }
+
+        #mobile-menu-overlay { transition: all 0.4s ease-in-out; }
+
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .fix-font-clipping {
+            line-height: 1.4 !important;
+            padding-top: 0.2em;
+            padding-right: 0.15em;
+            display: block;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <header class="fixed w-full z-[100] glass-overlay border-b border-gold/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col items-center">
+                <div class="w-12 h-[2px] bg-gold mb-1"></div>
+                <span class="font-cinzel text-lg font-bold tracking-[0.2em] logo-gradient uppercase fix-font-clipping">
+                    DOIS.IRMÃOS
+                </span>
+                <span class="text-[7px] uppercase tracking-[0.5em] text-gray-400">Vidraçaria</span>
+            </div>
+            
+            <ul class="hidden lg:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
+                <li><a href="#home" class="hover:text-gold transition">Início</a></li>
+                <li><a href="#sobre" class="hover:text-gold transition">A Empresa</a></li>
+                <li><a href="#servicos" class="hover:text-gold transition">Serviços</a></li>
+                <li><a href="#avaliacoes" class="hover:text-gold transition">Avaliações</a></li>
+                <li><a href="#portfolio" class="hover:text-gold transition">Obras</a></li>
+                <li><a href="https://wa.me/5548991464360" target="_blank" class="text-gold border border-gold px-5 py-2 hover:bg-gold hover:text-black transition duration-500">Orçamento</a></li>
+            </ul>
+
+            <button id="menu-mobile" class="lg:hidden text-gold text-2xl">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- MENU MOBILE OVERLAY -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-[150] bg-richBlack/95 backdrop-blur-lg flex flex-col items-center justify-center opacity-0 pointer-events-none">
+        <button id="close-menu" class="absolute top-8 right-8 text-gold text-4xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul class="text-center space-y-8 text-lg font-cinzel tracking-[0.3em] uppercase">
+            <li><a href="#home" class="mobile-link hover:text-gold">Início</a></li>
+            <li><a href="#sobre" class="mobile-link hover:text-gold">A Empresa</a></li>
+            <li><a href="#servicos" class="mobile-link hover:text-gold">Serviços</a></li>
+            <li><a href="#avaliacoes" class="mobile-link hover:text-gold">Avaliações</a></li>
+            <li><a href="#portfolio" class="mobile-link hover:text-gold">Obras</a></li>
+            <li><a href="https://wa.me/5548991464360" target="_blank" class="mobile-link text-gold">WhatsApp</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/70 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Ambiente de Luxo">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20 text-center">
+            <div class="reveal flex flex-col items-center">
+                <div class="mb-6 flex flex-col items-center">
+                    <svg viewBox="0 0 100 35" class="w-40 md:w-56 h-auto">
+                        <path d="M5 35 L50 5 L95 35" fill="none" stroke="#D4AF37" stroke-width="2" />
+                    </svg>
+                    <div class="grid grid-cols-2 gap-1 -mt-3 md:-mt-4">
+                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gold"></div>
+                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gold"></div>
+                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gold"></div>
+                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gold"></div>
+                    </div>
+                </div>
+
+                <div class="mb-12 flex flex-col items-center">
+                    <div class="w-32 h-[1px] bg-gold/50 mb-4"></div>
+                    <h1 class="font-cinzel text-5xl md:text-8xl font-black mb-2 glass-shine uppercase fix-font-clipping tracking-tighter">
+                        DOIS.IRMÃOS
+                    </h1>
+                    <p class="font-cinzel text-base md:text-xl tracking-[0.6em] text-white uppercase mt-4">Vidraçaria</p>
+                </div>
+                
+                <h2 class="text-gray-300 text-sm md:text-lg mb-12 max-w-3xl mx-auto font-light tracking-widest uppercase">
+                    18 Anos de Tradição e <span class="text-gold">Excelência</span> na Grande Florianópolis.
+                </h2>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="https://wa.me/5548991464360" target="_blank" class="btn-glow bg-gold text-black px-8 py-3.5 rounded-sm font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-all transform hover:-translate-y-1">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-20 bg-cardBlack border-y border-gold/10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                <div class="text-center reveal">
+                    <span class="block font-cinzel text-4xl text-gold mb-2">18</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Anos de História</span>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 0.2s;">
+                    <span class="block font-cinzel text-4xl text-gold mb-2">5k+</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Obras Entregues</span>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 0.4s;">
+                    <span class="block font-cinzel text-4xl text-gold mb-2">5.0</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Avaliação Google</span>
+                </div>
+                <div class="text-center reveal" style="transition-delay: 0.6s;">
+                    <span class="block font-cinzel text-4xl text-gold mb-2">SC</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-500">Grande Florianópolis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSA HISTÓRIA -->
+    <section id="sobre" class="py-32 bg-richBlack relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl">
+                <div class="reveal">
+                    <h2 class="font-cinzel text-4xl md:text-6xl mb-6 uppercase">
+                        NOSSA <span class="logo-gradient italic">HISTÓRIA</span>
+                    </h2>
+                    <div class="w-20 h-[2px] bg-gold mb-12"></div>
+                </div>
+                
+                <div class="space-y-8 text-gray-300 leading-relaxed text-lg md:text-xl font-light reveal">
+                    <p>
+                        Com uma trajetória sólida de <strong class="text-gold font-semibold tracking-wide">18 anos</strong>, a Vidraçaria Dois Irmãos consolidou-se como referência na Grande Florianópolis. Nossa jornada começou com o compromisso de unir a transparência e leveza do vidro à solidez de um atendimento familiar e profissional.
+                    </p>
+                    <p>
+                        Ao longo de quase duas décadas, nos mantivemos no topo do mercado através da constante evolução técnica e do investimento em materiais de altíssima performance. Nossa forma de trabalhar é pautada na <strong class="text-gold font-semibold tracking-wide">precisão milimétrica</strong>, desde a medição técnica até a instalação final, garantindo que cada projeto seja entregue com acabamento de joalheria.
+                    </p>
+                    <p>
+                        O segredo da nossa longevidade é a confiança. Tratamos cada residência ou empresa como se fosse nossa, oferecendo soluções sob medida que aliam segurança, design moderno e durabilidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none hidden lg:block">
+            <span class="font-cinzel text-[30rem] leading-none select-none">DI</span>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-32 bg-cardBlack/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-cinzel text-4xl md:text-6xl mb-4 uppercase">Nossos <span class="logo-gradient italic">Serviços</span></h2>
+                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="gold-border p-12 reveal group hover:bg-gold/5 transition-all duration-500">
+                    <i class="fa-solid fa-shower text-4xl text-gold mb-8 block transition group-hover:scale-110"></i>
+                    <h3 class="font-cinzel text-2xl mb-6 uppercase tracking-widest">Box de Luxo</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Instalação de box frontal e até o teto para banheiros com vidros temperados, diversos modelos e acabamentos de alta resistência.</p>
+                    <a href="https://wa.me/5548991464360" target="_blank" class="text-gold text-[10px] font-bold uppercase tracking-widest border-b border-gold pb-1">Consultar Orçamento</a>
+                </div>
+                <div class="gold-border p-12 reveal group hover:bg-gold/5 transition-all duration-500" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-gold mb-8 block transition group-hover:scale-110"></i>
+                    <h3 class="font-cinzel text-2xl mb-6 uppercase tracking-widest">Espelhos</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Fabricação e instalação de espelhos sob medida, lapidados e bisotados para todos os tipos de ambientes.</p>
+                    <a href="https://wa.me/5548991464360" target="_blank" class="text-gold text-[10px] font-bold uppercase tracking-widest border-b border-gold pb-1">Consultar Orçamento</a>
+                </div>
+                <div class="gold-border p-12 reveal group hover:bg-gold/5 transition-all duration-500" style="transition-delay: 0.4s;">
+                    <i class="fa-solid fa-gem text-4xl text-gold mb-8 block transition group-hover:scale-110"></i>
+                    <h3 class="font-cinzel text-2xl mb-6 uppercase tracking-widest">Vidros & Esquadrias</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Soluções em vidros temperados, laminados e esquadrias de alumínio para portas, janelas e fachadas residenciais.</p>
+                    <a href="https://wa.me/5548991464360" target="_blank" class="text-gold text-[10px] font-bold uppercase tracking-widest border-b border-gold pb-1">Consultar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE AVALIAÇÕES (GOOGLE) -->
+    <section id="avaliacoes" class="py-32 bg-richBlack">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col items-center mb-20 text-center reveal">
+                <h2 class="font-cinzel text-4xl md:text-5xl mb-4 uppercase">
+                    Somos <span class="text-gold">5 Estrelas</span> no Google
+                </h2>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-4xl font-bold font-cinzel">5.0</span>
+                    <div class="flex text-gold text-2xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs tracking-[0.3em] uppercase mb-12">Confira o que nossos clientes dizem</p>
+
+                <!-- Barras Gráficas -->
+                <div class="w-full max-w-md bg-cardBlack/50 p-6 rounded-lg gold-border">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-gray-400">5</span>
+                            <div class="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-gold w-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 opacity-30">
+                            <span class="text-xs text-gray-400">4</span>
+                            <div class="flex-1 h-2 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center gap-4 opacity-30">
+                            <span class="text-xs text-gray-400">3</span>
+                            <div class="flex-1 h-2 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center gap-4 opacity-30">
+                            <span class="text-xs text-gray-400">2</span>
+                            <div class="flex-1 h-2 bg-gray-800 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center gap-4 opacity-30">
+                            <span class="text-xs text-gray-400">1</span>
+                            <div class="flex-1 h-2 bg-gray-800 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid com todos os 13 Depoimentos Originais -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#00897b] rounded-full flex items-center justify-center font-bold text-white">A</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Alessandro Garcia</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Bom dia atendimento rápido, funcionário gente fina trabalho top .Parabéns a empresa"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#1e88e5] rounded-full flex items-center justify-center font-bold text-white">M</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Maria Marques</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Pontuais no agendamento. Montagem cuidadosa com o box em si e também com o espaço como um todo. Atenciosos e atendimento ágil para orçamento. Fiquei muito satisfeita."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#7cb342] rounded-full flex items-center justify-center font-bold text-white">W</div>
+                        <div>
+                            <h4 class="font-bold text-xs">William santos De jesus</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Atendimento nota 10 ,muito bom recomendo,serviço bem feito,entrega rápida, condições de pagamento bem acessível. Top gostei muito do serviço prestado."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#8e24aa] rounded-full flex items-center justify-center font-bold text-white">A</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Ana Paula Borges</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Trabalho excelente, acabamento perfeito, muito caprichosos, super indico. 👏 ..."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#c2185b] rounded-full flex items-center justify-center font-bold text-white">N</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Nubya Silva</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Ótimo atendimento , muita rapidez , e um perfeito acabamento , recomendo"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#0097a7] rounded-full flex items-center justify-center font-bold text-white">V</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Vitor Luis</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Atendimento ágil, entregou com menos de 1 semana, recomendaria com certeza."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Debora+Takemura&background=f44336&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <div>
+                            <h4 class="font-bold text-xs">Debora Takemura</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Empresa comprometida com o cliente."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Davi+Pasold&background=03a9f4&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <div>
+                            <h4 class="font-bold text-xs">Davi S Pasold</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Fechei com eles num dia e no dia seguinte já vieram instalar o box de banheiro. Serviço foi super rápido e organizado. Trabalho de excelência com muito capricho!"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#ef6c00] rounded-full flex items-center justify-center font-bold text-white">S</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Simone Lemos Puerta Ramos</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Atendimento de excelência! Equipe qualificada, preço justo. Ótimos produtos e cumpre com prazos de entrega. Super recomendo!"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#78909c] rounded-full flex items-center justify-center font-bold text-white">G</div>
+                        <div>
+                            <h4 class="font-bold text-xs">giane martins</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Excelente trabalho! O box ficou impecável, entrega rápida e de ótima qualidade. Atendimento profissional e eficiente. Recomendo com total confiança!"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Daiane+Goulart&background=e91e63&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <div>
+                            <h4 class="font-bold text-xs">Daiane Goulart Mello</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Qualidade, compromisso e respeito com cliente super indico!"</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 bg-[#673ab7] rounded-full flex items-center justify-center font-bold text-white">A</div>
+                        <div>
+                            <h4 class="font-bold text-xs">Antonio Balthazar</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Profissional atencioso e educado. Serviço rápido e de preço justo."</p>
+                </div>
+
+                <div class="gold-border p-6 bg-cardBlack reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Cassiano+Santos&background=5d4037&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <div>
+                            <h4 class="font-bold text-xs">Cassiano Santos</h4>
+                            <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-xs italic">"Guilherme muito receptivo! Empresa muito bem estruturada com atendimento impecável rápido e ágil estão de parabéns 👏👏👏👏 ..."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / OBRAS -->
+    <section id="portfolio" class="py-32 bg-cardBlack">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
+                <div>
+                    <h2 class="font-cinzel text-4xl md:text-5xl mb-4 uppercase">Obras <span class="logo-gradient italic">Recentes</span></h2>
+                    <p class="text-gray-500 text-xs tracking-[0.3em] uppercase">A prova da nossa qualidade</p>
+                </div>
+                <a href="https://www.instagram.com/vidracariadoisirmaoss/" target="_blank" class="text-gold font-bold border-b border-gold pb-1 hover:text-white transition mt-8 md:mt-0 uppercase text-[10px] tracking-widest">Siga no Instagram →</a>
+            </div>
+
+            <div id="obras-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+                
+                <!-- 6 Fotos Iniciais -->
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto1.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto7.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto23.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto19.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto13.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="gold-border overflow-hidden group aspect-square">
+                    <img src="projeto6.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+
+                <!-- Fotos Ocultas (17) -->
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto2.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto3.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto4.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto5.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto8.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto9.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto10.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto11.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto12.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto14.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto15.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto16.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto17.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto18.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto20.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto21.jpeg" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto22.jpeg" class="w-full h-full object-cover"></div>
+            </div>
+
+            <!-- Botão Ver Mais -->
+            <div class="flex justify-center mt-12">
+                <button id="btn-ver-mais" class="border border-gold text-gold px-12 py-4 text-[12px] font-bold uppercase tracking-[0.3em] hover:bg-gold hover:text-black transition duration-500">
+                    Ver Mais Projetos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTATO COMPLETO -->
+    <footer id="contato" class="py-32 border-t border-gold/20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24">
+                <div class="reveal">
+                    <div class="flex flex-col mb-12">
+                        <span class="font-cinzel text-4xl font-bold logo-gradient uppercase fix-font-clipping">DOIS.IRMÃOS</span>
+                        <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase">Vidraçaria</span>
+                    </div>
+                    <p class="text-gray-500 mb-12 max-w-md leading-relaxed font-light">
+                        Há quase duas décadas elevando o padrão de vidraçaria na Grande Florianópolis. Seu projeto merece a perfeição que só a Dois Irmãos entrega.
+                    </p>
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6">
+                            <i class="fa-solid fa-phone text-gold text-xl"></i>
+                            <span class="font-bold tracking-widest">(48) 99146-4360</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <i class="fa-solid fa-location-dot text-gold text-xl"></i>
+                            <span class="font-bold tracking-widest uppercase text-sm">R. Carauna - Bela Vista, Palhoça - SC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <h4 class="font-cinzel text-2xl mb-10 italic text-gold uppercase tracking-widest">Solicite seu Orçamento</h4>
+                    <form id="orcamento-form" class="space-y-6">
+                        <input type="text" id="nome" placeholder="NOME COMPLETO" required class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-gold transition text-xs tracking-widest">
+                        <input type="email" id="email" placeholder="EMAIL" required class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-gold transition text-xs tracking-widest">
+                        <textarea id="projeto" placeholder="DESCREVA SEU PROJETO" rows="3" required class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-gold transition text-xs tracking-widest"></textarea>
+                        <button type="submit" class="w-full py-3.5 bg-gold text-black font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition duration-500">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-32 pt-12 border-t border-white/5 text-center text-gray-500 text-[8px] tracking-[0.5em] uppercase leading-loose">
+                Vidraçaria Dois Irmãos | Tradição e Transparência. <br>
+                Desenvolvido por <a href="https://wa.me/5548991597470" target="_blank" class="text-gold hover:text-white transition">GJ INFORMATICA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING -->
+    <a href="https://wa.me/5548991464360" target="_blank" class="fixed bottom-8 right-8 z-[200] bg-gold text-black w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const menuBtn = document.getElementById('menu-mobile');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const closeBtn = document.getElementById('close-menu');
+        menuBtn.onclick = () => overlay.classList.remove('opacity-0', 'pointer-events-none');
+        closeBtn.onclick = () => overlay.classList.add('opacity-0', 'pointer-events-none');
+
+        const reveals = document.querySelectorAll('.reveal');
+        const revealFunc = () => reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 50) el.classList.add('active');
+        });
+        window.addEventListener('scroll', revealFunc);
+        window.addEventListener('load', revealFunc);
+
+        document.getElementById('btn-ver-mais').onclick = function() {
+            document.querySelectorAll('.extra-obra').forEach(obra => obra.classList.remove('hidden'));
+            this.parentElement.style.display = 'none';
+        };
+
+        document.getElementById('orcamento-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const msg = document.getElementById('projeto').value;
+            const textoFinal = `Olá, gostaria de solicitar um orçamento!%0A%0A*Nome:* ${nome}%0A*Email:* ${email}%0A*Projeto:* ${msg}`;
+            window.open(`https://wa.me/5548991464360?text=${textoFinal}`, '_blank');
+        });
+    </script>
+</body>
+</html>
