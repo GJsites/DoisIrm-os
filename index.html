@@ -7,6 +7,9 @@
     
     <meta name="description" content="Vidraçaria Dois Irmãos - 18 anos de tradição na Grande Florianópolis. Especialistas em vidros temperados, espelhos de luxo e esquadrias de alto padrão.">
     
+    <!-- Evita que o iOS transforme textos em links bugados -->
+    <meta name="format-detection" content="telephone=no">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts -->
@@ -42,16 +45,9 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
-            /* Correção forçada de GPU para o bug do Safari/iOS */
-            -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
-        .mirror-effect {
-            -webkit-box-reflect: below -18px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
-        }
+        /* A classe mirror-effect foi removida pois é ela que causa o quadrado azul no Safari/iOS */
 
         .glass-shine {
             background: linear-gradient(120deg, #D4AF37 30%, #fff 50%, #D4AF37 70%);
@@ -61,11 +57,6 @@
             background-clip: text;
             color: transparent;
             animation: shine 5s linear infinite;
-            /* Correção forçada de GPU para o bug do Safari/iOS */
-            -webkit-transform: translate3d(0,0,0);
-            transform: translate3d(0,0,0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
         @keyframes shine {
@@ -150,7 +141,8 @@
     <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-black/70 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Ambiente de Luxo">
+            <!-- Correção: onerror adicionado para esconder o ícone de erro azul caso a imagem falhe no 4G -->
+            <img src="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="" onerror="this.style.display='none'">
         </div>
 
         <div class="container mx-auto px-6 relative z-20 text-center">
@@ -169,7 +161,6 @@
 
                 <div class="mb-12 flex flex-col items-center">
                     <div class="w-32 h-[1px] bg-gold/50 mb-4"></div>
-                    <!-- mirror-effect removido apenas daqui conforme solicitado -->
                     <h1 class="font-cinzel text-5xl md:text-8xl font-black mb-2 glass-shine uppercase fix-font-clipping tracking-tighter">DOIS.IRMÃOS</h1>
                     <p class="font-cinzel text-base md:text-xl tracking-[0.6em] text-white uppercase mt-4">Vidraçaria</p>
                 </div>
