@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidraçaria Dois Irmãos | Excelência em Vidros e Espelhos</title>
     
-    <meta name="description" content="Vidraçaria Dois Irmãos - 18 anos de tradição na Grande Florianópolis. Especialistas em vidros temperados, espelhos de luxo e esquadrias de alto padrão.">
-    
-    <!-- Evita que o iOS transforme textos em links bugados -->
+    <!-- SEO BÁSICO -->
+    <title>Vidraçaria Dois Irmãos | Excelência em Vidros e Espelhos em Florianópolis</title>
+    <meta name="description" content="Vidraçaria Dois Irmãos - 18 anos de tradição na Grande Florianópolis e Palhoça. Especialistas em vidros temperados, espelhos de luxo, box para banheiro e esquadrias.">
+    <meta name="keywords" content="vidraçaria florianópolis, vidraçaria palhoça, box de vidro, espelhos sob medida, esquadrias de alumínio, vidro temperado">
+    <meta name="robots" content="index, follow">
     <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://seusite.com.br/"> <!-- Substitua pelo seu domínio real depois -->
+
+    <!-- SEO SOCIAL (OPEN GRAPH) - Para ficar bonito no WhatsApp e Redes Sociais -->
+    <meta property="og:title" content="Vidraçaria Dois Irmãos | Alto Padrão">
+    <meta property="og:description" content="Especialistas em vidros temperados, espelhos de luxo e esquadrias na Grande Florianópolis. Solicite seu orçamento!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- SEO LOCAL (SCHEMA MARKUP) - Para o Google Maps e Buscas Locais -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Vidraçaria Dois Irmãos",
+      "image": "https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80",
+      "description": "Há 18 anos elevando o padrão de vidraçaria na Grande Florianópolis. Especialistas em box de luxo, espelhos e esquadrias.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Carauna - Bela Vista",
+        "addressLocality": "Palhoça",
+        "addressRegion": "SC",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5548991464360",
+      "priceRange": "$$"
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,8 +75,6 @@
             background-clip: text;
             color: transparent;
         }
-
-        /* A classe mirror-effect foi removida pois é ela que causa o quadrado azul no Safari/iOS */
 
         .glass-shine {
             background: linear-gradient(120deg, #D4AF37 30%, #fff 50%, #D4AF37 70%);
@@ -116,7 +143,7 @@
                 <li><a href="https://wa.me/5548991464360" target="_blank" class="text-gold border border-gold px-5 py-2 hover:bg-gold hover:text-black transition duration-500">Orçamento</a></li>
             </ul>
 
-            <button id="menu-mobile" class="lg:hidden text-gold text-2xl">
+            <button id="menu-mobile" class="lg:hidden text-gold text-2xl" aria-label="Abrir menu">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
         </nav>
@@ -124,7 +151,7 @@
 
     <!-- MENU MOBILE OVERLAY -->
     <div id="mobile-menu-overlay" class="fixed inset-0 z-[150] bg-richBlack/95 backdrop-blur-lg flex flex-col items-center justify-center opacity-0 pointer-events-none">
-        <button id="close-menu" class="absolute top-8 right-8 text-gold text-4xl">
+        <button id="close-menu" class="absolute top-8 right-8 text-gold text-4xl" aria-label="Fechar menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <ul class="text-center space-y-8 text-lg font-cinzel tracking-[0.3em] uppercase">
@@ -141,8 +168,7 @@
     <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-black/70 z-10"></div>
-            <!-- Correção: onerror adicionado para esconder o ícone de erro azul caso a imagem falhe no 4G -->
-            <img src="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="" onerror="this.style.display='none'">
+            <img src="https://images.unsplash.com/photo-1600607687940-4e2003e25d27?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Ambiente de luxo com vidros e espelhos" onerror="this.style.display='none'">
         </div>
 
         <div class="container mx-auto px-6 relative z-20 text-center">
@@ -161,7 +187,11 @@
 
                 <div class="mb-12 flex flex-col items-center">
                     <div class="w-32 h-[1px] bg-gold/50 mb-4"></div>
-                    <h1 class="font-cinzel text-5xl md:text-8xl font-black mb-2 glass-shine uppercase fix-font-clipping tracking-tighter">DOIS.IRMÃOS</h1>
+                    <!-- H1 Otimizado para SEO: O texto extra fica invisível para o usuário, mas o Google lê -->
+                    <h1 class="font-cinzel text-5xl md:text-8xl font-black mb-2 glass-shine uppercase fix-font-clipping tracking-tighter">
+                        DOIS.IRMÃOS
+                        <span class="sr-only"> - Vidraçaria em Florianópolis e Palhoça</span>
+                    </h1>
                     <p class="font-cinzel text-base md:text-xl tracking-[0.6em] text-white uppercase mt-4">Vidraçaria</p>
                 </div>
                 
@@ -377,7 +407,7 @@
 
                 <div class="gold-border p-6 bg-cardBlack reveal">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Debora+Takemura&background=f44336&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <img src="https://ui-avatars.com/api/?name=Debora+Takemura&background=f44336&color=fff" class="w-10 h-10 rounded-full border border-gold/30" alt="Cliente Debora Takemura">
                         <div>
                             <h4 class="font-bold text-xs">Debora Takemura</h4>
                             <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -388,7 +418,7 @@
 
                 <div class="gold-border p-6 bg-cardBlack reveal">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Davi+Pasold&background=03a9f4&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <img src="https://ui-avatars.com/api/?name=Davi+Pasold&background=03a9f4&color=fff" class="w-10 h-10 rounded-full border border-gold/30" alt="Cliente Davi Pasold">
                         <div>
                             <h4 class="font-bold text-xs">Davi S Pasold</h4>
                             <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -421,7 +451,7 @@
 
                 <div class="gold-border p-6 bg-cardBlack reveal">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Daiane+Goulart&background=e91e63&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <img src="https://ui-avatars.com/api/?name=Daiane+Goulart&background=e91e63&color=fff" class="w-10 h-10 rounded-full border border-gold/30" alt="Cliente Daiane Goulart">
                         <div>
                             <h4 class="font-bold text-xs">Daiane Goulart Mello</h4>
                             <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -443,7 +473,7 @@
 
                 <div class="gold-border p-6 bg-cardBlack reveal">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Cassiano+Santos&background=5d4037&color=fff" class="w-10 h-10 rounded-full border border-gold/30">
+                        <img src="https://ui-avatars.com/api/?name=Cassiano+Santos&background=5d4037&color=fff" class="w-10 h-10 rounded-full border border-gold/30" alt="Cliente Cassiano Santos">
                         <div>
                             <h4 class="font-bold text-xs">Cassiano Santos</h4>
                             <div class="flex text-gold text-[8px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -468,44 +498,44 @@
 
             <div id="obras-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                 
-                <!-- 6 Fotos Iniciais -->
+                <!-- 6 Fotos Iniciais com ALT otimizado -->
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto1.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto1.jpeg" alt="Instalação de Box de Vidro Temperado em Florianópolis" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto7.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto7.jpeg" alt="Espelho sob medida para banheiro em Palhoça" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto23.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto23.jpeg" alt="Esquadrias de alumínio de alto padrão" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto19.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto19.jpeg" alt="Fechamento de sacada com vidro temperado" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto13.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto13.jpeg" alt="Box Elegance até o teto instalado" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
                 <div class="gold-border overflow-hidden group aspect-square">
-                    <img src="projeto6.jpeg" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    <img src="projeto6.jpeg" alt="Espelho bisotado decorativo para sala" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                 </div>
 
-                <!-- Fotos Ocultas (17) -->
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto2.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto3.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto4.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto5.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto8.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto9.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto10.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto11.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto12.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto14.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto15.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto16.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto17.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto18.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto20.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto21.jpeg" class="w-full h-full object-cover"></div>
-                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto22.jpeg" class="w-full h-full object-cover"></div>
+                <!-- Fotos Ocultas (17) com ALT otimizado -->
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto2.jpeg" alt="Projeto de vidraçaria residencial em SC" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto3.jpeg" alt="Guarda-corpo de vidro para escada" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto4.jpeg" alt="Porta de vidro temperado de correr" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto5.jpeg" alt="Instalação de espelho com LED" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto8.jpeg" alt="Box frontal de vidro para banheiro" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto9.jpeg" alt="Janela de vidro temperado" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto10.jpeg" alt="Divisória de ambiente em vidro" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto11.jpeg" alt="Espelho lapidado grande formato" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto12.jpeg" alt="Vidro refletivo para fachada" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto14.jpeg" alt="Box de canto em vidro temperado" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto15.jpeg" alt="Vidraçaria especializada em Palhoça" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto16.jpeg" alt="Serviço de instalação de vidros" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto17.jpeg" alt="Acabamento premium em espelhos" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto18.jpeg" alt="Esquadrias sob medida" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto20.jpeg" alt="Cobertura de vidro temperado" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto21.jpeg" alt="Muro de vidro residencial" class="w-full h-full object-cover"></div>
+                <div class="extra-obra hidden gold-border overflow-hidden group aspect-square"><img src="projeto22.jpeg" alt="Vidraçaria Dois Irmãos - Obras entregues" class="w-full h-full object-cover"></div>
             </div>
 
             <!-- Botão Ver Mais -->
@@ -558,7 +588,7 @@
     </footer>
 
     <!-- WHATSAPP FLOATING -->
-    <a href="https://wa.me/5548991464360" target="_blank" class="fixed bottom-8 right-8 z-[200] bg-gold text-black w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform duration-300">
+    <a href="https://wa.me/5548991464360" target="_blank" aria-label="Falar no WhatsApp" class="fixed bottom-8 right-8 z-[200] bg-gold text-black w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform duration-300">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
